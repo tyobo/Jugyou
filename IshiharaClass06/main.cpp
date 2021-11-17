@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#pragma region  コメントアウト
 /*
 仮想関数
 継承元のクラスの関数を仮想関数にしておくと、
@@ -9,39 +9,39 @@
 class ParentClass
 {
 public:
-    ParentClass() {}
-    void Print(){ printf("Parent\n"); }
+	ParentClass() {}
+	void Print(){ printf("Parent\n"); }
 };
 class ChildClass : public ParentClass
 {
 public:
-    ChildClass() {}
-    void Print(){ printf("Child\n"); }
+	ChildClass() {}
+	void Print(){ printf("Child\n"); }
 };
 */
 /*
 class ParentClass
 {
 public:
-    ParentClass() {}
-    void Print() { printf("Parent\n"); }
+	ParentClass() {}
+	void Print() { printf("Parent\n"); }
 };
 class ChildClass : public ParentClass
 {
 public:
-    void Print() { printf("Child\n"); }
+	void Print() { printf("Child\n"); }
 };
 
 int main()
 {
-    ParentClass* parent = new ParentClass();
-    ParentClass* child = new ChildClass();
+	ParentClass* parent = new ParentClass();
+	ParentClass* child = new ChildClass();
 
-    parent->Print();
-    child->Print();
+	parent->Print();
+	child->Print();
 
-    delete parent;
-    delete child;
+	delete parent;
+	delete child;
 }
 */
 /*
@@ -57,25 +57,25 @@ ParentClass型に入れているので、
 class ParentClass
 {
 public:
-    ParentClass() {}
-    virtual void Print() { printf("Parent\n"); }
+	ParentClass() {}
+	virtual void Print() { printf("Parent\n"); }
 };
 class ChildClass : public ParentClass
 {
 public:
-    void Print() { printf("Child\n"); }
+	void Print() { printf("Child\n"); }
 };
 
 int main()
 {
-    ParentClass* parent = new ParentClass();
-    ParentClass* child = new ChildClass();
+	ParentClass* parent = new ParentClass();
+	ParentClass* child = new ChildClass();
 
-    parent->Print();
-    child->Print();
+	parent->Print();
+	child->Print();
 
-    delete parent;
-    delete child;
+	delete parent;
+	delete child;
 }
 */
 /*
@@ -94,34 +94,34 @@ Calcを引き算を行うようにしたCalcSubクラスを作成してくださ
 class CalcAdd
 {
 public:
-    virtual int Calc(int x, int y)
-    {
-        int ans;
-        ans = x + y;
-        printf("%d + %d = %d\n", x, y, ans);
-        return ans;
-    }
+	virtual int Calc(int x, int y)
+	{
+		int ans;
+		ans = x + y;
+		printf("%d + %d = %d\n", x, y, ans);
+		return ans;
+	}
 };
 
 class CalcSub : public CalcAdd
 {
 public:
-    int Calc(int x, int y)
-    {
-        int ans;
-        ans = x - y;
-        printf("%d - %d = %d\n", x, y, ans);
-        return ans;
-    }
+	int Calc(int x, int y)
+	{
+		int ans;
+		ans = x - y;
+		printf("%d - %d = %d\n", x, y, ans);
+		return ans;
+	}
 };
 
 int main()
 {
-    CalcAdd add;
-    CalcSub sub;
+	CalcAdd add;
+	CalcSub sub;
 
-    add.Calc(10, 5);
-    sub.Calc(10, 5);
+	add.Calc(10, 5);
+	sub.Calc(10, 5);
 }
 */
 
@@ -140,42 +140,42 @@ int main()
 class Object
 {
 public:
-    Object() {}
-    virtual ~Object() { printf("Exec Object Destructor.\n");  }
+	Object() {}
+	virtual ~Object() { printf("Exec Object Destructor.\n");  }
 public:
-    virtual void Update() {}
+	virtual void Update() {}
 };
 
 class Player : public Object
 {
 public:
-    Player() {}
-    ~Player() { printf("Exec Player Destructor.\n"); }
+	Player() {}
+	~Player() { printf("Exec Player Destructor.\n"); }
 public:
-    void Update() { printf("Player Update.\n");  }
+	void Update() { printf("Player Update.\n");  }
 };
 
 class Enemy : public Object
 {
 public:
-    Enemy() {}
-    ~Enemy() { printf("Exec Enemy Destructor.\n"); }
+	Enemy() {}
+	~Enemy() { printf("Exec Enemy Destructor.\n"); }
 public:
-    void Update() { printf("Enemy Update.\n"); }
+	void Update() { printf("Enemy Update.\n"); }
 };
 
 void DoUpdate(Object * obj)
 {
-    obj->Update();
+	obj->Update();
 }
 
 int main()
 {
-    Player player;
-    Enemy enemy;
+	Player player;
+	Enemy enemy;
 
-    DoUpdate(&player);
-    DoUpdate(&enemy);
+	DoUpdate(&player);
+	DoUpdate(&enemy);
 }
 */
 /*
@@ -204,28 +204,28 @@ virtualをつけておいて継承をしなかった場合でも、
 class ParentClass
 {
 public:
-    ParentClass() {}
-    ~ParentClass() { printf("Exec ParentClass Destructor.\n"); }
-    virtual void Print() { printf("Parent\n"); }
+	ParentClass() {}
+	~ParentClass() { printf("Exec ParentClass Destructor.\n"); }
+	virtual void Print() { printf("Parent\n"); }
 };
 class ChildClass : public ParentClass
 {
 public:
-    ChildClass() {}
-    ~ChildClass() { printf("Exec ChildClass Destructor.\n"); }
-    void Print() { printf("Child\n"); }
+	ChildClass() {}
+	~ChildClass() { printf("Exec ChildClass Destructor.\n"); }
+	void Print() { printf("Child\n"); }
 };
 
 int main()
 {
-    ParentClass* parent = new ParentClass();
-    ParentClass* child = new ChildClass();
+	ParentClass* parent = new ParentClass();
+	ParentClass* child = new ChildClass();
 
-    parent->Print();
-    child->Print();
+	parent->Print();
+	child->Print();
 
-    delete parent;
-    delete child;
+	delete parent;
+	delete child;
 }
 */
 
@@ -234,28 +234,28 @@ int main()
 class ParentClass
 {
 public:
-    ParentClass() {}
-    virtual ~ParentClass() { printf("Exec ParentClass Destructor.\n"); }
-    virtual void Print() { printf("Parent\n"); }
+	ParentClass() {}
+	virtual ~ParentClass() { printf("Exec ParentClass Destructor.\n"); }
+	virtual void Print() { printf("Parent\n"); }
 };
 class ChildClass : public ParentClass
 {
 public:
-    ChildClass() {}
-    ~ChildClass() { printf("Exec ChildClass Destructor.\n"); }
-    void Print() { printf("Child\n"); }
+	ChildClass() {}
+	~ChildClass() { printf("Exec ChildClass Destructor.\n"); }
+	void Print() { printf("Child\n"); }
 };
 
 int main()
 {
-    ParentClass* parent = new ParentClass();
-    ParentClass* child = new ChildClass();
+	ParentClass* parent = new ParentClass();
+	ParentClass* child = new ChildClass();
 
-    parent->Print();
-    child->Print();
+	parent->Print();
+	child->Print();
 
-    delete parent;
-    delete child;
+	delete parent;
+	delete child;
 }
 */
 
@@ -390,34 +390,87 @@ int main()
 //    }
 //
 //}
+#pragma endregion
+//Objectクラス
+//x, y, z座標を保存する変数、Update関数を持つ。
+//Update関数はvirtualで作ってください。
+//
+//Vehicle(乗り物)クラス
+//Objectクラスを継承したクラス。
+//ここではsetSpeed関数を追加してください。
+//またspeedとaccelの変数をここで追加してください。
+//setSpeed関数はvirtualで作ってください。
+//(正確な速度の処理を行いたい場合は、向きと加速度で、
+//	ベクトルを計算する方法でも構いません。)
+//
+//	Car(車)クラス
+//	Vehicleクラスを継承したクラス
+//	Speedの変更をここでCar用に実装してください。
+//
+//	流れを理解するという意味で、
+//	この親クラスから派生クラスを作っていってほしいので、
+//	中の計算処理やデータの設定の仕方は、
+//	適当に行ってもらって結構です。
+//
+//	また、このクラスは必ず提出してください。
+//	成績に加味します。
+//
+//	時間があれば、
+//	Vehicleクラスを継承して、
+//	bicycle(自転車)やbike(オートバイ)
+//	といったクラスの作成や、
+//	Carをさらに継承したpolice carや、truckなどの
+//	クラスを作成してみてください。
 class Object
 {
 public:
-    Object();
+	virtual void Update()
+	{
+		printf("x = %f\n", x);
+		printf("y = %f\n", y);
+		printf("z = %f\n", z);
+	};
 
-    virtual void Update(float num)
-    {
-        x += num;
-    };
-private:
-    float x = 0;
-    float y = 0;
-    float z = 0;
+	float x = 0;
+	float y = 0;
+	float z = 0;
 };
+
 class Vehicle : public Object
 {
 public:
-    virtual float _Speed(float num)
-    {
-        num += Speed;
-        return num;
-    }
-private:
-    float Speed = 5.0f;
-    float accel = 5.0f;
-private:
+	virtual void setSpeed()
+	{
+		speed += accel;
+	}
+	virtual void Update()
+	{
+		printf("x=%f\n",speed);
+	}
+
+	float speed = 0;
+	float accel = 0;
 };
 class Car : public Vehicle
 {
-
+private:
+public:
+	Car()
+	{
+		speed = 1;
+		accel = 10;
+	}
+	void Update()
+	{
+		Vehicle::Update();
+	}
 };
+int main()
+{
+	Car car;
+	for (int i = 0; i < 100; i++)
+	{
+		car.setSpeed();
+		car.Update();
+	}
+}
